@@ -75,7 +75,7 @@ def paddle_b_down():
 
 def spacebar():
     score_a, score_b == 0, 0
-    
+
 
 # def paddle_a_right():
 #     x = paddle_a.xcor()
@@ -114,6 +114,8 @@ while True:
         ball.dy *= -1
 
     if ball.xcor() > 390:
+        paddle_a.goto(-350, 0)
+        paddle_b.goto(350, 0)
         ball.goto(0, 0)
         ball.dx, ball.dy = 0.1, 0.1
         ball.dy *= -1
@@ -132,6 +134,8 @@ while True:
             pass
 
     if ball.xcor() < -390:
+        paddle_a.goto(-350, 0)
+        paddle_b.goto(350, 0)
         ball.goto(0, 0)
         ball.dx, ball.dy = 0.1, 0.1
         score_b += 1
@@ -159,23 +163,34 @@ while True:
         ball.dx *= 1.2
         ball.dy *= 1.2
 
-    def win():
-        win = turtle.Turtle()
-        win.speed(0)
-        pen.color("white")
-        pen.penup()
-        pen.hideturtle()
-        pen.goto(0, 0)
+    #border checking for paddlesssss
+    if paddle_a.ycor() > 250:
+        paddle_a.goto(-350, 320)
+    if paddle_a.ycor() < -250:
+        paddle_a.goto(-350, -250)
+    if paddle_b.ycor() > 250:
+        paddle_b.goto(350, 250)
+    if paddle_b.ycor() < -250:
+        paddle_b.goto(350, -250)
+
+
+    # def win():
+    #     win = turtle.Turtle()
+    #     win.speed(0)
+    #     pen.color("white")
+    #     pen.penup()
+    #     pen.hideturtle()
+    #     pen.goto(0, 0)
 
     #Player A wins
-    if score_a == 1:
-        win()
-        pen.write("Player A wins!", align="center", font=("Courier", 42, "normal"))
-
-    #Player B wins
-    if score_b == 1:
-        win()
-        pen.write("Player B wins!", align="center", font=("Courier", 42, "normal"))
+    # if score_a == 1:
+    #     win()
+    #     pen.write("Player A wins!", align="center", font=("Courier", 42, "normal"))
+    #
+    # #Player B wins
+    # if score_b == 1:
+    #     win()
+    #     pen.write("Player B wins!", align="center", font=("Courier", 42, "normal"))
 
 
 

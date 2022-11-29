@@ -2,7 +2,7 @@ import turtle
 import random
 
 wn = turtle.Screen()
-wn.title("Lenny's Pong Game Sheeesh")
+wn.title("Lenny's Pong  Sheeesh")
 wn.bgcolor("black")
 wn.setup(width=800, height=600)
 wn.tracer(0)
